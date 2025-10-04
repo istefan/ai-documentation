@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background-color: #ffffff;
+}
+
+.card {
+    border-color: #d8dee4;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.code-block {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background-color: #f6f8fa;
+    color: #24292e;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d0d7de;
+    font-size: 0.875em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Stil pentru structura arborescenta */
+.directory-tree {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    background-color: #f6f8fa;
+    color: #24292e;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d0d7de;
+    white-space: pre;
+    line-height: 1.5;
+    font-size: 0.9em;
+}
+
+.documentation-content h5 {
+    margin-top: 1.5rem;
+}
