@@ -1,10 +1,12 @@
 <?php
 require_once 'config/database.php';
 
+// Only process POST requests
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     $conn = connectDB();
 
     switch ($_POST['action']) {
+        // --- ADD A NEW PROJECT ---
         case 'add':
             $title = trim($_POST['title']);
             $description = trim($_POST['description']);
@@ -22,15 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             }
             break;
 
+        // --- UPDATE AN EXISTING PROJECT ---
         case 'update':
             $id = $_POST['id'];
             $title = trim($_POST['title']);
             $description = trim($_POST['description']);
-            $folder_path = trim($_POST['folder_path']); // Am adaugat calea
+            $folder_path = trim($_POST['folder_path']);
 
             if (!empty($id) && !empty($title) && !empty($folder_path)) {
                 $stmt = $conn->prepare("UPDATE projects SET title = ?, description = ?, folder_path = ? WHERE id = ?");
-                $stmt->bind_param("sssi", $title, $description, $folder_path, $id); // sssi
+                $stmt->bind_param("sssi", $title, $description, $folder_path, $id);
                 if ($stmt->execute()) {
                     header("Location: index.php?status=success_update");
                 } else {
@@ -40,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             }
             break;
 
+        // --- DELETE A PROJECT ---
         case 'delete':
             $id = $_POST['id'];
             if (!empty($id)) {
@@ -56,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     }
     $conn->close();
 } else {
+    // Redirect if accessed directly
     header("Location: index.php");
 }
 exit();

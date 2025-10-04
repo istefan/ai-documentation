@@ -1,10 +1,3 @@
-<?php
-/**
- * Template pentru afișarea unui singur proiect în lista de pe index.php.
- * 
- * Acest fișier este inclus dintr-o buclă și are acces la variabila $project.
- */
-?>
 <div class="project-item">
     <h3><?php echo htmlspecialchars($project['title']); ?></h3>
     

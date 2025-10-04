@@ -1,30 +1,30 @@
 <?php
 
-// Detaliile de conectare la baza de date
-define('DB_HOST', 'localhost'); // De obicei 'localhost' sau '127.0.0.1'
-define('DB_USER', 'root');      // Utilizatorul MySQL
-define('DB_PASS', '');          // Parola MySQL (goală în cazul tău)
-define('DB_NAME', 'ai_documentation'); // Numele bazei de date create anterior
+// Database connection details
+define('DB_HOST', 'localhost'); // Usually 'localhost' or '127.0.0.1'
+define('DB_USER', 'root');      // Your MySQL username
+define('DB_PASS', '');          // Your MySQL password (leave empty if none)
+define('DB_NAME', 'ai_documentation'); // The name of the database
 
 /**
- * Functie pentru a crea o conexiune la baza de date folosind MySQLi.
+ * Creates a new database connection using MySQLi.
  *
- * @return mysqli|false Obiectul de conexiune mysqli in caz de succes, sau false in caz de eroare.
+ * @return mysqli|false The mysqli connection object on success, or false on error.
  */
 function connectDB() {
-    // Încearcă să creezi o nouă conexiune
+    // Attempt to create a new connection
     $connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-    // Verifică dacă a apărut o eroare la conectare
+    // Check for a connection error
     if ($connection->connect_error) {
-        // Oprește execuția scriptului și afișează un mesaj de eroare
-        die("Eroare de conectare la baza de date: " . $connection->connect_error);
+        // Stop script execution and display an error message
+        die("Database connection error: " . $connection->connect_error);
     }
 
-    // Setează setul de caractere la utf8mb4 pentru a suporta caractere speciale și emoji
+    // Set the character set to utf8mb4 to support special characters and emoji
     $connection->set_charset("utf8mb4");
 
-    // Returnează obiectul de conexiune
+    // Return the connection object
     return $connection;
 }
 

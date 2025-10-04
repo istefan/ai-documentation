@@ -5,7 +5,6 @@ $sql = "SELECT id, title, description FROM projects ORDER BY updated_at DESC";
 $result = $conn->query($sql);
 
 $status_message = '';
-// Mesajele de status raman la fel, Bootstrap le va stila corespunzator
 
 include 'templates/header.php';
 ?>
