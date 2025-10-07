@@ -4,7 +4,7 @@
 // Directories to completely ignore (tree and content)
 const IGNORED_DIRECTORIES = ['.git', 'node_modules'];
 // Files to mention but skip their content
-const FILES_TO_SUMMARIZE = ['composer.lock', 'LICENSE', 'README.md', '.gitignore'];
+const FILES_TO_SUMMARIZE = ['composer.lock', 'LICENSE', '.gitignore'];
 // File extensions to treat as binary/unimportant and skip their content
 const EXTENSIONS_TO_SUMMARIZE = [
     'png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'ico', // Images
