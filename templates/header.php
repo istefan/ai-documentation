@@ -12,11 +12,20 @@
 </head>
 <body class="bg-white">
 
-<!-- Header nou: fundal deschis, cu o bordura subtila -->
+<?php require_once __DIR__ . '/../config/app.php'; ?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-  <div class="container">
-    <a class="navbar-brand" href="index.php"><i class="bi bi-journal-code"></i> AI Documentation Tool</a>
-  </div>
+    <div class="container">
+        <a class="navbar-brand" href="index.php">
+            <i class="bi bi-journal-code"></i> AI Documentation Tool &nbsp;<span class="badge bg-secondary"><?php echo APP_VERSION; ?></span>
+        </a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/istefan/ai-documentation" target="_blank" title="View on GitHub">
+                    <i class="bi bi-github"></i> GitHub Repository
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <!-- Container principal cu mai mult padding vertical -->
